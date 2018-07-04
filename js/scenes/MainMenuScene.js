@@ -1,20 +1,12 @@
-let MainMenuScene = new (class
+class MainMenuScene
 {
-    load()
+    static load()
     {
-        EntityManager.newEntity([
-            new TransformComponent({
-                "pos": new Vector(0, 0),
-                "posMode": "absolute"
-            }),
-            new ButtonComponent({
-                "text": "Play"
-            })
-        ]);
+        return [new CreateEntityEvent()];
     }
 
-    unload()
+    static unload()
     {
-        EntityManager.destroyAllEntities();
+        return [new DestroyAllEntitiesEvent()];
     }
-})();
+}

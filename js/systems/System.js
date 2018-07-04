@@ -1,12 +1,16 @@
 class System
 {
-    constructor(fps)
+    constructor(fps, events = [])
     {
-        this.clock = new Clock(fps, this.update.bind(this));
+        this.fps = fps;
+        this.subscribedEventTypes = events;
+        if (this.fps > 0) this.clock = new Clock(fps, this.update.bind(this));
     }
+
+    init() {}
 
     requestUpdate(dt)
     {
-        this.clock.requestTick(dt);
+        if (this.fps > 0) return this.clock.requestTick(dt);
     }
 }

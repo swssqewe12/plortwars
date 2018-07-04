@@ -7,6 +7,6 @@ class RenderSystem extends System
 
     update(dt)
     {
-        console.log("update");
+        
     }
 }

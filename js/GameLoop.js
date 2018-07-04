@@ -25,7 +25,7 @@ class GameLoop
         this.animationFrameHandle = requestAnimationFrame(this.tickBound);
         let now = Date.now();
         let dt = now - this.then;
-        this.callback(dt);
         this.then = now;
+        this.callback(dt);
     }
 }

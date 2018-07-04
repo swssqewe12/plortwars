@@ -10,14 +10,13 @@ class Clock
 
     requestTick(dt)
     {
-        this.dt += dt;
+        dt = this.dt += dt;
 
-        if (this.dt >= (this.target_dt - this.target_dt_offset))
+        if (dt >= (this.target_dt - this.target_dt_offset))
         {
-            let dt = this.dt
-            this.target_dt_offset = this.dt % this.target_dt;
             this.dt = 0;
-            this.callback(dt);
+            this.target_dt_offset = dt % this.target_dt;
+            return this.callback(dt);
         }
     }
 }
